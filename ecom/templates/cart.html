@@ -1,0 +1,227 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Flower Shop Website</title>
+
+
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link
+    href="https://fonts.googleapis.com/css2?family=Leckerli+One&family=Merriweather&family=Montserrat:wght@300;400;500;600;700;800;900&family=Sacramento&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">  
+        
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <!--header section-->
+    <header>
+        <a href="#" class="logo1">
+            <img src={% static "images/logo1.jpeg" %} height="150px" width="200px">
+        </a>
+
+        <ul class="navbar">
+            <li><a href="#home">Home</a></li>
+            <!-- <li><a href="#top product">Shop</a></li> -->
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="#contact">Contact us</a></li>    
+            {% if user.is_authenticated %}
+            
+            </li>
+            <div class="dropdown" ">
+                <button class="btn-secondary dropdown-toggle" style="border:none;background:none;color:#010101" type="button" id="dropdownMenuButton1"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                    {{user.username}}
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="#">{{user.username}}</a></li>
+                    <li><a class="dropdown-item" href="#top product">Products</a></li>
+                    <li><a class="dropdown-item" href="/signout">Log out</a></li>
+                </ul>
+             </div>
+            </li>
+                {% else %}
+            <li ><a style="border:none;background:none;color:#010101" href="/signin">Login</a></li>
+            {% endif %}
+        </ul>
+
+        <div class="h-icons">
+
+            <a href="/signin"><i class='bx bxs-user-circle'></i></a>
+            <a href="#banner"><i class='bx bxs-heart'></i></a>
+            <!-- <a href="#"><i class='bx bxs-cart-add' id="cart-icon"></i></a> -->
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+
+        <!--CART-->
+        <div class="cart">
+            <h2 class="cart-title">Your Cart</h2>
+
+
+            <!-- CONTENT -->
+            <div class="cart-content">
+
+            </div>
+
+
+            <!-- TOTAL -->
+            <div class="total">
+                <div class="total-title">Total</div>
+                <div class="total-price">RS 0</div>
+            </div>
+            <!-- BUY BUTTON-->
+            <a href="https://esewa.com.np/#/home"><button type="button" class="btn-buy">Buy Now</button></a>
+            <!-- CART CLOSE -->
+            <i class='bx bx-x' style='color:#8b6391' id="cart-close"></i>
+        </div>
+
+    </header>
+
+    <!--Home section-->
+    <section class="home" id="home">
+        <div class="home-text">
+            <h1>Find your own <br> Happiness</h1>
+            <p>Make a bouquet and pick up a gift with <br> your wishes. Deliver to any
+                corner of the city.</p>
+            <a href="#new product" class="btn"> Pick a Bouquet</a>
+        </div>
+    </section>
+
+
+    <!--banner section-->
+    <section class="banner" id="banner">
+        <div class="banner-img" id="banner-img">
+            <img src={% static "images/banner/banner1.webp" %}>
+        </div>
+        <div class="banner-img">
+            <img src={% static "images/banner/banner2.jpg" %}>
+        </div>
+        <div class="banner-img">
+            <img src="{% static "images/banner/banner3.jpg" %}">
+        </div>
+    </section>
+
+    <!--blog section-->
+    <section class="blog" id="blog">
+        <div class="center-text">
+            <h2>Latest News</h2>
+        </div>
+
+        <div class="blog-content">
+            <div class="main-box">
+                <div class="box-img">
+                    <img src="{% static 'images/blog/blog1.jpg' %}">
+                </div>
+                <div class="in-bxx">
+                    <div class="in-text">
+                        <p>May 11, 2023</p>
+                    </div>
+                    <div class="in-icon">
+                        <a href="#"><i class='bx bx-message-rounded-dots'></i>+100</a>
+                    </div>
+                </div>
+                <h3>The lily of the valley sprang from Eve's tears as she was exiled from the Garden of Eden.
+                    It is the flower of fairies who used its tiny bells as cups for drinking.</h3>
+            </div>
+
+            <div class="main-box">
+                <div class="box-img">
+                    <img src="{% static 'images/blog/blog2.jpg' %}">
+                </div>
+                <div class="in-bxx">
+                    <div class="in-text">
+                        <p>May 17, 2023</p>
+                    </div>
+                    <div class="in-icon">
+                        <a href="#"><i class='bx bx-message-rounded-dots'></i>25</a>
+                    </div>
+                </div>
+                <h3>Archaeologists have discovered rose fossils that date back 35 million years.
+                    Even more shocking, the oldest living rose is 1,000 years old. </h3>
+            </div>
+
+            <div class="main-box">
+                <div class="box-img">
+                    <img src="{% static 'images/blog/blog3.jpg' %}">
+                </div>
+                <div class="in-bxx">
+                    <div class="in-text">
+                        <p>May 22, 2023</p>
+                    </div>
+                    <div class="in-icon">
+                        <a href="#"><i class='bx bx-message-rounded-dots'></i>40</a>
+                    </div>
+                </div>
+                <h3>One of the most popular flowers only next to the rose, Chrysanthemums are also known as “mum” and
+                    believed to have originated from China.</h3>
+            </div>
+        </div>
+    </section>
+
+
+    <!--contact section-->
+    <section class="contact" id="contact">
+        <div class="contact-box">
+            <h4>MY ACCOUNT</h4>
+            <li><a href="#">My account</a></li>
+            <li><a href="#">Checkout</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Shooping Cart</a></li>
+            <li><a href="#">Wishlist</a></li>
+        </div>
+
+        <div class="contact-box">
+            <h4>QUICK LINKS</h4>
+            <li><a href="#">Store Location</a></li>
+            <li><a href="#">Orders Tracking</a></li>
+            <li><a href="#">Size Guide</a></li>
+            <li><a href="#">My account</a></li>
+            <li><a href="#">FAQs</a></li>
+        </div>
+
+        <div class="contact-box">
+            <h4>INFORMATION</h4>
+            <li><a href="#">Dudhpati, Bhaktapur</a></li>
+            <li><a href="#">phone:1234 5678</a></li>
+            <li><a href="#">Email: bloom@gmail.com</a></li>
+            <li><a href="#">Delivery Information</a></li>
+            <li><a href="#">Terms and Conditions</a></li>
+        </div>
+
+        <div class="contact-box">
+            <h4>Blooms</h4>
+            <div class="social">
+                <a href="#"><i class='bx bxl-facebook-square'></i></a>
+                <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                <a href="#"><i class='bx bxl-snapchat'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!--scroll-->
+    <a href="#" class="scroll-top"><i class='bx bx-chevrons-up'></i></a>
+    <div class="end-text">
+        <p>@ Melina Thapa. All Rights Reserved.</p>
+    </div>
+
+    <!--custom js link-->
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
